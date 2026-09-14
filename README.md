@@ -4,18 +4,6 @@
 
 ---
 
-## 📋 Table of Contents
-
-1. [Project Overview](#-project-overview)
-2. [Live Demo Screenshots](#-live-demo-screenshots)
-3. [Key Features by Role](#-key-features-by-role)
-4. [Technology Stack](#-technology-stack)
-5. [Folder Structure](#-folder-structure)
-6. [Database Models & Schemas](#-database-models--schemas)
-7. [Authentication & Authorization Flow](#-authentication--authorization-flow)
-8. [REST API Endpoints Reference](#-rest-api-endpoints-reference)
-9. [Installation & Setup Guide](#-installation--setup-guide)
-
 ---
 
 ## 🌟 Project Overview
@@ -32,26 +20,25 @@ Operational records are stored and calculated live in **MongoDB**. The project a
 
 The screenshots below show the application running locally with the seeded demo data.
 
-| Application View    | Screenshot                                                               |
-| :------------------ | :----------------------------------------------------------------------- |
-| Live demo screen 1  | ![Live demo screen 1](screenshots/Screenshot%202026-09-14%20163459.png)  |
-| Live demo screen 2  | ![Live demo screen 2](screenshots/Screenshot%202026-09-14%20163515.png)  |
-| Live demo screen 3  | ![Live demo screen 3](screenshots/Screenshot%202026-09-14%20163534.png)  |
-| Live demo screen 4  | ![Live demo screen 4](screenshots/Screenshot%202026-09-14%20163547.png)  |
-| Live demo screen 5  | ![Live demo screen 5](screenshots/Screenshot%202026-09-14%20163559.png)  |
-| Live demo screen 6  | ![Live demo screen 6](screenshots/Screenshot%202026-09-14%20163810.png)  |
-| Live demo screen 7  | ![Live demo screen 7](screenshots/Screenshot%202026-09-14%20163819.png)  |
-| Live demo screen 8  | ![Live demo screen 8](screenshots/Screenshot%202026-09-14%20163843.png)  |
-| Live demo screen 9  | ![Live demo screen 9](screenshots/Screenshot%202026-09-14%20163923.png)  |
-| Live demo screen 10 | ![Live demo screen 10](screenshots/Screenshot%202026-09-14%20164014.png) |
-| Live demo screen 11 | ![Live demo screen 11](screenshots/Screenshot%202026-09-14%20164027.png) |
-| Live demo screen 12 | ![Live demo screen 12](screenshots/Screenshot%202026-09-14%20164039.png) |
-| Live demo screen 13 | ![Live demo screen 13](screenshots/Screenshot%202026-09-14%20164053.png) |
-| Live demo screen 14 | ![Live demo screen 14](screenshots/Screenshot%202026-09-14%20164102.png) |
-| Live demo screen 15 | ![Live demo screen 15](screenshots/Screenshot%202026-09-14%20164159.png) |
-| Live demo screen 16 | ![Live demo screen 16](screenshots/Screenshot%202026-09-14%20164210.png) |
-| Live demo screen 17 | ![Live demo screen 17](screenshots/Screenshot%202026-09-14%20164221.png) |
-| Live demo screen 18 | ![Live demo screen 18](screenshots/Screenshot%202026-09-14%20164233.png) |
+| Application View     | Screenshot                                                               |
+| :------------------- | :----------------------------------------------------------------------- |
+| Home page            | ![Live demo screen 1](screenshots/Screenshot%202026-09-14%20163459.png)  |
+| Home page            | ![Live demo screen 2](screenshots/Screenshot%202026-09-14%20163515.png)  |
+| Home page            | ![Live demo screen 3](screenshots/Screenshot%202026-09-14%20163534.png)  |
+| Sign in              | ![Live demo screen 4](screenshots/Screenshot%202026-09-14%20163547.png)  |
+| Patient registration | ![Live demo screen 5](screenshots/Screenshot%202026-09-14%20163559.png)  |
+| Patient dashboard    | ![Live demo screen 6](screenshots/Screenshot%202026-09-14%20163810.png)  |
+| Patient portal       | ![Live demo screen 8](screenshots/Screenshot%202026-09-14%20163843.png)  |
+| Patient portal       | ![Live demo screen 9](screenshots/Screenshot%202026-09-14%20163923.png)  |
+| Admin portal         | ![Live demo screen 10](screenshots/Screenshot%202026-09-14%20164014.png) |
+| Admin portal         | ![Live demo screen 11](screenshots/Screenshot%202026-09-14%20164027.png) |
+| Admin portal         | ![Live demo screen 12](screenshots/Screenshot%202026-09-14%20164039.png) |
+| Admin portal         | ![Live demo screen 13](screenshots/Screenshot%202026-09-14%20164053.png) |
+| Admin portal         | ![Live demo screen 14](screenshots/Screenshot%202026-09-14%20164102.png) |
+| Doctor portal        | ![Live demo screen 15](screenshots/Screenshot%202026-09-14%20164159.png) |
+| Doctor portal        | ![Live demo screen 16](screenshots/Screenshot%202026-09-14%20164210.png) |
+| Doctor portal        | ![Live demo screen 17](screenshots/Screenshot%202026-09-14%20164221.png) |
+| Doctor portal        | ![Live demo screen 18](screenshots/Screenshot%202026-09-14%20164233.png) |
 
 ---
 
