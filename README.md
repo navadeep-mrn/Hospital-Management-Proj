@@ -1,9 +1,6 @@
 # 🏥 CarePoint - Hospital Management System (HMS)
 
 
----
-
----
 
 ## 🌟 Project Overview
 
