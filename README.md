@@ -1,6 +1,5 @@
 # 🏥 CarePoint - Hospital Management System (HMS)
 
-> A full-stack **MERN (MongoDB, Express.js, React, Node.js)** web application built as an undergraduate college course project. Features a modern, clean, and responsive healthcare UI with simple, viva-friendly code and real database persistence.
 
 ---
 
