@@ -1,6 +1,4 @@
-// ==============================================================================
 // TREATMENT CONTROLLER
-// ==============================================================================
 // Manages clinical diagnoses, prescriptions, and medical consultation notes.
 // When a doctor completes an appointment, they record diagnosis and prescription,
 // which simultaneously marks the appointment as "Completed" and saves the record
@@ -11,11 +9,9 @@ const Appointment = require("../models/Appointment");
 const Doctor = require("../models/Doctor");
 const Patient = require("../models/Patient");
 
-// ------------------------------------------------------------------------------
 // @desc    Add treatment details (diagnosis, prescription, notes) for an appointment
 // @route   POST /api/treatments
 // @access  Private/Doctor
-// ------------------------------------------------------------------------------
 const createTreatment = async (req, res) => {
     try {
         const { appointmentId, diagnosis, prescription, notes } = req.body;
@@ -76,11 +72,9 @@ const createTreatment = async (req, res) => {
     }
 };
 
-// ------------------------------------------------------------------------------
 // @desc    Get complete treatment history for a patient
 // @route   GET /api/treatments/patient/:patientId
 // @access  Private (Patient, Doctor, Admin)
-// ------------------------------------------------------------------------------
 const getTreatmentsByPatient = async (req, res) => {
     try {
         const { patientId } = req.params;
@@ -103,11 +97,9 @@ const getTreatmentsByPatient = async (req, res) => {
     }
 };
 
-// ------------------------------------------------------------------------------
 // @desc    Get treatment record for a specific appointment
 // @route   GET /api/treatments/appointment/:appointmentId
 // @access  Private
-// ------------------------------------------------------------------------------
 const getTreatmentByAppointment = async (req, res) => {
     try {
         const treatment = await Treatment.findOne({ appointment: req.params.appointmentId })

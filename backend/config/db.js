@@ -1,6 +1,4 @@
-// ==============================================================================
 // DATABASE CONNECTION (MongoDB with Mongoose)
-// ==============================================================================
 // This file connects the Express application to MongoDB using the Mongoose ODM.
 // Mongoose simplifies database interactions by providing schemas, models, and
 // built-in validation for our Hospital Management System.

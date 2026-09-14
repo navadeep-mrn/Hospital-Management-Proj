@@ -1,6 +1,4 @@
-// ==============================================================================
 // MANAGE SPECIALIZATIONS PAGE (ManageSpecializations.jsx)
-// ==============================================================================
 // Admin management of medical departments / clinical specialties.
 // View, add, and remove departments from the hospital system.
 

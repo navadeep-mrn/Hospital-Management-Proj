@@ -1,6 +1,4 @@
-// ==============================================================================
 // AUTOMATIC ADMIN SEEDING SCRIPT
-// ==============================================================================
 // Called on backend startup.
 // Checks whether an Admin account already exists in MongoDB.
 // If no admin is found, it automatically creates the initial superuser.

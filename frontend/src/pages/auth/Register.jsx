@@ -1,6 +1,4 @@
-// ==============================================================================
 // PATIENT REGISTRATION PAGE (Register.jsx)
-// ==============================================================================
 // Allows new patients to register their demographic and login information.
 // Automatically hashes password on the backend, saves both User and Patient records,
 // and issues a JWT token for instant login upon submission.

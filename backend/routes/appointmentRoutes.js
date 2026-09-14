@@ -1,6 +1,4 @@
-// ==============================================================================
 // APPOINTMENT ROUTES
-// ==============================================================================
 // Endpoints for booking, listing, rescheduling, cancelling, and completing appointments.
 
 const express = require("express");

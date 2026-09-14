@@ -1,6 +1,4 @@
-// ==============================================================================
 // PATIENT MEDICAL HISTORY (PatientHistory.jsx)
-// ==============================================================================
 // Displays the patient's chronological medical and treatment records.
 // Gives access to doctor diagnoses, prescriptions, and lifestyle/dietary notes
 // recorded across all completed hospital consultations.

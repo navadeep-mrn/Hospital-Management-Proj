@@ -5,37 +5,53 @@
 ---
 
 ## 📋 Table of Contents
+
 1. [Project Overview](#-project-overview)
-2. [Key Features by Role](#-key-features-by-role)
-3. [Technology Stack](#-technology-stack)
-4. [Folder Structure](#-folder-structure)
-5. [Database Models & Schemas](#-database-models--schemas)
-6. [Entity Relationship (ER) Diagram](#-entity-relationship-er-diagram)
-7. [Authentication & Authorization Flow](#-authentication--authorization-flow)
-8. [Double-Booking Prevention Logic](#-double-booking-prevention-logic)
-9. [REST API Endpoints Reference](#-rest-api-endpoints-reference)
-10. [Installation & Setup Guide](#-installation--setup-guide)
-11. [Environment Variables](#-environment-variables)
-12. [Demo Credentials](#-demo-credentials)
-13. [Viva Preparation Questions & Answers](#-viva-preparation-questions--answers)
-14. [Future Enhancements](#-future-enhancements)
+2. [Live Demo Screenshots](#-live-demo-screenshots)
+3. [Key Features by Role](#-key-features-by-role)
+4. [Technology Stack](#-technology-stack)
+5. [Folder Structure](#-folder-structure)
+6. [Database Models & Schemas](#-database-models--schemas)
+7. [Entity Relationship (ER) Diagram](#-entity-relationship-er-diagram)
+8. [Authentication & Authorization Flow](#-authentication--authorization-flow)
+9. [Double-Booking Prevention Logic](#-double-booking-prevention-logic)
+10. [REST API Endpoints Reference](#-rest-api-endpoints-reference)
+11. [Installation & Setup Guide](#-installation--setup-guide)
+12. [Environment Variables](#-environment-variables)
+13. [Demo Credentials](#-demo-credentials)
+14. [Viva Preparation Questions & Answers](#-viva-preparation-questions--answers)
+15. [Future Enhancements](#-future-enhancements)
 
 ---
 
 ## 🌟 Project Overview
 
 **CarePoint Hospital Management System** connects patients, specialist doctors, and hospital administrators in a unified digital workflow:
+
 - **Patients** can register, discover doctors by clinical department, book appointments without double-booking conflicts, reschedule visits, and access digital prescriptions.
 - **Doctors** can manage their 7-day consultation schedule, examine daily patient visits, mark appointments as completed, and issue clinical diagnoses and prescriptions.
 - **Administrators** have complete control over doctors, patient records, departmental specialties, and live operational hospital metrics.
 
-All data is stored and calculated live in **MongoDB** — with **no fake numbers, no static arrays, and no dummy mockups**.
+Operational records are stored and calculated live in **MongoDB**. The project also includes static demo seed data, default availability schedules, and a few presentation metrics on the public homepage.
+
+## 🖥️ Live Demo Screenshots
+
+The screenshots below show the application running locally with the seeded demo data.
+
+### Doctor Availability Management
+
+Doctors can configure working days and add multiple consultation slots for each day.
+
+![Doctor availability management](image.png)
+
+> More screenshots can be added to this section by placing image files in the repository and linking them with relative paths, for example: `![Admin dashboard](screenshots/admin-dashboard.png)`.
 
 ---
 
 ## 👥 Key Features by Role
 
 ### 👑 1. Hospital Administrator (Superuser)
+
 - **Automatic Initialization**: Super admin account is auto-created on initial database boot.
 - **Live Analytics Dashboard**:
   - Total Doctors, Registered Patients, Total Appointments, and Today's Scheduled Visits.
@@ -61,6 +77,7 @@ All data is stored and calculated live in **MongoDB** — with **no fake numbers
 ---
 
 ### 👨‍⚕️ 2. Doctor Portal
+
 - **Secure Authentication**: Dedicated login for hospital physicians.
 - **Doctor Dashboard**:
   - Counts for Today's Visits, Upcoming Consultations, Completed Visits, and Unique Patients Treated.
@@ -68,7 +85,7 @@ All data is stored and calculated live in **MongoDB** — with **no fake numbers
 - **Appointment Lifecycle**:
   - View assigned appointments filterable by status (Booked, Completed, Cancelled) and calendar date.
   - Mark appointments as "Completed" by recording diagnosis and prescription in a modal.
-  - Cancel appointments with patient notification.
+  - Cancel appointments and update the appointment status.
 - **Patient Clinical File**:
   - Access patient records and complete chronological consultation history.
   - Review prior diagnoses, prescribed medications, and doctor notes.
@@ -79,6 +96,7 @@ All data is stored and calculated live in **MongoDB** — with **no fake numbers
 ---
 
 ### 👤 3. Patient Portal
+
 - **Self Registration & Login**: Easy registration capturing age, gender, phone, and residential address.
 - **Patient Dashboard**:
   - Prominent upcoming appointment alert banner with physician name, date, and time slot.
@@ -103,19 +121,19 @@ All data is stored and calculated live in **MongoDB** — with **no fake numbers
 
 ## 💻 Technology Stack
 
-| Layer | Technology | Description |
-| :--- | :--- | :--- |
-| **Frontend** | React (Vite) | Fast, modern component-based single-page user interface |
-| **Routing** | React Router DOM (v6) | Declarative client-side routing with role-based protected guards |
-| **UI Framework** | Bootstrap 5 | Clean, responsive styling with native cards, tables, badges, and modals |
-| **Icons** | Bootstrap Icons / Unicode | Standard, clean visual cues across cards and buttons |
-| **HTTP Client** | Axios | REST API communication with automatic JWT Authorization interceptor |
-| **State Management** | React Context API | Native React auth context (`AuthContext`) avoiding Redux complexity |
-| **Backend** | Node.js & Express.js | RESTful HTTP API routing and modular controller architecture |
-| **Database** | MongoDB | Document database for JSON-like storage of users, appointments, and records |
-| **ODM** | Mongoose (v8) | Schema validation, relational indexing, and `.populate()` references |
-| **Password Security** | bcryptjs | Salt generation and one-way password hashing |
-| **Token Security** | jsonwebtoken (JWT) | Stateless signed session tokens stored in browser localStorage |
+| Layer                 | Technology                | Description                                                                 |
+| :-------------------- | :------------------------ | :-------------------------------------------------------------------------- |
+| **Frontend**          | React (Vite)              | Fast, modern component-based single-page user interface                     |
+| **Routing**           | React Router DOM (v6)     | Declarative client-side routing with role-based protected guards            |
+| **UI Framework**      | Bootstrap 5               | Clean, responsive styling with native cards, tables, badges, and modals     |
+| **Icons**             | Bootstrap Icons / Unicode | Standard, clean visual cues across cards and buttons                        |
+| **HTTP Client**       | Axios                     | REST API communication with automatic JWT Authorization interceptor         |
+| **State Management**  | React Context API         | Native React auth context (`AuthContext`) avoiding Redux complexity         |
+| **Backend**           | Node.js & Express.js      | RESTful HTTP API routing and modular controller architecture                |
+| **Database**          | MongoDB                   | Document database for JSON-like storage of users, appointments, and records |
+| **ODM**               | Mongoose (v8)             | Schema validation, relational indexing, and `.populate()` references        |
+| **Password Security** | bcryptjs                  | Salt generation and one-way password hashing                                |
+| **Token Security**    | jsonwebtoken (JWT)        | Stateless signed session tokens stored in browser localStorage              |
 
 > **Viva Note**: No over-engineered technologies (Redux, Next.js, TypeScript, GraphQL, Docker, Prisma) were used. The code prioritizes readability, straightforward async/await patterns, and easy explanation.
 
@@ -187,7 +205,7 @@ hospital/
 │   │   ├── pages/
 │   │   │   ├── Home.jsx               # Hospital landing page with hero, stats, and doctors
 │   │   │   ├── auth/
-│   │   │   │   ├── Login.jsx          # Universal login with 1-click viva demo credentials
+│   │   │   │   ├── Login.jsx          # Universal email/password login for all roles
 │   │   │   │   └── Register.jsx       # Patient registration form
 │   │   │   ├── admin/
 │   │   │   │   ├── AdminDashboard.jsx # Admin analytics and recent appointment activity
@@ -232,7 +250,9 @@ hospital/
 ## 🗄️ Database Models & Schemas
 
 ### 1. `User` Model
+
 Central authentication document for all accounts:
+
 - `name` (String, required): Full name
 - `email` (String, required, unique, lowercase): Login email
 - `password` (String, required): bcrypt-hashed password
@@ -242,7 +262,9 @@ Central authentication document for all accounts:
 - `isActive` (Boolean, default: `true`): Deactivation flag for account blocking
 
 ### 2. `Doctor` Model
+
 Extends `User` with clinical information:
+
 - `user` (ObjectId, ref: `User`, required): Link to base user
 - `specialization` (ObjectId, ref: `Specialization`, required): Medical department
 - `qualification` (String, required): Medical degrees (e.g. `MBBS, MD (Cardiology)`)
@@ -254,7 +276,9 @@ Extends `User` with clinical information:
 - `isAvailable` (Boolean, default: `true`): General consultation toggle
 
 ### 3. `Patient` Model
+
 Extends `User` with clinical demographics:
+
 - `user` (ObjectId, ref: `User`, required): Link to base user
 - `age` (Number, required): Age in years
 - `gender` (String, enum: `["Male", "Female", "Other"]`, required)
@@ -262,7 +286,9 @@ Extends `User` with clinical demographics:
 - `address` (String): Residential address
 
 ### 4. `Appointment` Model
+
 Connects Patient and Doctor on a specific date and time slot:
+
 - `patient` (ObjectId, ref: `Patient`, required)
 - `doctor` (ObjectId, ref: `Doctor`, required)
 - `date` (String, required): Stored as `"YYYY-MM-DD"` for timezone-agnostic comparisons
@@ -272,7 +298,9 @@ Connects Patient and Doctor on a specific date and time slot:
 - Compound Index: `{ doctor: 1, date: 1, time: 1, status: 1 }` for high-speed slot conflict checks.
 
 ### 5. `Treatment` Model
+
 Clinical outcomes created when a doctor completes a consultation:
+
 - `appointment` (ObjectId, ref: `Appointment`, required)
 - `patient` (ObjectId, ref: `Patient`, required)
 - `doctor` (ObjectId, ref: `Doctor`, required)
@@ -281,7 +309,9 @@ Clinical outcomes created when a doctor completes a consultation:
 - `notes` (String): Doctor's advice and follow-up guidance
 
 ### 6. `Specialization` Model
+
 Clinical departments:
+
 - `name` (String, required, unique): Department name (e.g. `Cardiology`)
 - `description` (String): Overview of departmental scope
 
@@ -294,10 +324,10 @@ erDiagram
     USER ||--o| DOCTOR : "extends (1:1)"
     USER ||--o| PATIENT : "extends (1:1)"
     SPECIALIZATION ||--o{ DOCTOR : "categorizes (1:M)"
-    
+
     PATIENT ||--o{ APPOINTMENT : "books (1:M)"
     DOCTOR ||--o{ APPOINTMENT : "attends (1:M)"
-    
+
     APPOINTMENT ||--o| TREATMENT : "produces (1:1)"
     PATIENT ||--o{ TREATMENT : "receives (1:M)"
     DOCTOR ||--o{ TREATMENT : "records (1:M)"
@@ -367,6 +397,7 @@ erDiagram
 ## 🔐 Authentication & Authorization Flow
 
 ### 1. Patient Registration
+
 ```text
 Patient fills registration form (Name, Email, Password, Age, Gender, Phone, Address)
                                 ↓
@@ -386,6 +417,7 @@ React stores token in localStorage and updates AuthContext
 ```
 
 ### 2. Login & Role Redirection
+
 ```text
 User enters Email and Password
              ↓
@@ -406,6 +438,7 @@ Client redirects based on user.role:
 ```
 
 ### 3. Dual-Level Role Protection
+
 - **Frontend Guard (`ProtectedRoute.jsx`)**: Checks if the user is authenticated and if `allowedRoles.includes(user.role)`. If not, redirects immediately.
 - **Backend Guard (`authMiddleware.js` + `roleMiddleware.js`)**:
   1. `protect`: Extracts `Bearer <token>` from HTTP Authorization header, verifies signature with `jwt.verify()`, and attaches `req.user`.
@@ -418,7 +451,9 @@ Client redirects based on user.role:
 One of the most important requirements in this project is preventing two patients from booking the same doctor on the same date and time slot.
 
 ### The Algorithm:
+
 When an appointment booking or rescheduling request arrives:
+
 1. The backend receives: `doctorId`, `date` (e.g. `"2026-10-15"`), and `time` (e.g. `"10:00 AM - 11:00 AM"`).
 2. It queries MongoDB for an existing appointment with `status: "Booked"`:
 
@@ -431,16 +466,17 @@ When an appointment booking or rescheduling request arrives:
 // We only check for status: "Booked" because "Cancelled" or "Completed"
 // appointments free up the doctor's time slot for new bookings.
 const existingAppointment = await Appointment.findOne({
-    doctor: doctorId,
-    date: date,
-    time: time,
-    status: "Booked"
+  doctor: doctorId,
+  date: date,
+  time: time,
+  status: 'Booked',
 });
 
 if (existingAppointment) {
-    return res.status(400).json({
-        message: "Doctor is already booked for this time slot. Please choose another slot or date."
-    });
+  return res.status(400).json({
+    message:
+      'Doctor is already booked for this time slot. Please choose another slot or date.',
+  });
 }
 ```
 
@@ -453,115 +489,142 @@ if (existingAppointment) {
 ## 🌐 REST API Endpoints Reference
 
 ### Authentication (`/api/auth`)
-| Method | Endpoint | Access | Description |
-| :--- | :--- | :--- | :--- |
-| `POST` | `/api/auth/register` | Public | Register new patient account |
-| `POST` | `/api/auth/login` | Public | Authenticate user (Admin, Doctor, Patient) & issue JWT |
-| `GET` | `/api/auth/me` | Authenticated | Get current authenticated user profile |
+
+| Method | Endpoint             | Access        | Description                                            |
+| :----- | :------------------- | :------------ | :----------------------------------------------------- |
+| `POST` | `/api/auth/register` | Public        | Register new patient account                           |
+| `POST` | `/api/auth/login`    | Public        | Authenticate user (Admin, Doctor, Patient) & issue JWT |
+| `GET`  | `/api/auth/me`       | Authenticated | Get current authenticated user profile                 |
 
 ### Doctors (`/api/doctors`)
-| Method | Endpoint | Access | Description |
-| :--- | :--- | :--- | :--- |
-| `GET` | `/api/doctors` | Public | List all doctors (supports `search`, `specialization`, `availableOnly`) |
-| `GET` | `/api/doctors/:id` | Public | Get single doctor details and weekly availability |
-| `POST` | `/api/doctors` | Admin | Create new doctor account & clinical profile |
-| `PUT` | `/api/doctors/:id` | Admin, Doctor | Update doctor qualifications, contact, or experience |
-| `PATCH` | `/api/doctors/:id/status` | Admin | Toggle doctor active/inactive status |
-| `PUT` | `/api/doctors/:id/availability` | Doctor, Admin | Update doctor's 7-day consultation schedule |
-| `DELETE` | `/api/doctors/:id` | Admin | Delete doctor profile and user login account |
+
+| Method   | Endpoint                        | Access        | Description                                                             |
+| :------- | :------------------------------ | :------------ | :---------------------------------------------------------------------- |
+| `GET`    | `/api/doctors`                  | Public        | List all doctors (supports `search`, `specialization`, `availableOnly`) |
+| `GET`    | `/api/doctors/:id`              | Public        | Get single doctor details and weekly availability                       |
+| `POST`   | `/api/doctors`                  | Admin         | Create new doctor account & clinical profile                            |
+| `PUT`    | `/api/doctors/:id`              | Admin, Doctor | Update doctor qualifications, contact, or experience                    |
+| `PATCH`  | `/api/doctors/:id/status`       | Admin         | Toggle doctor active/inactive status                                    |
+| `PUT`    | `/api/doctors/:id/availability` | Doctor, Admin | Update doctor's 7-day consultation schedule                             |
+| `DELETE` | `/api/doctors/:id`              | Admin         | Delete doctor profile and user login account                            |
 
 ### Patients (`/api/patients`)
-| Method | Endpoint | Access | Description |
-| :--- | :--- | :--- | :--- |
-| `GET` | `/api/patients` | Admin | List all patients (supports `search` by name, email, phone) |
-| `GET` | `/api/patients/:id` | Admin, Doctor, Patient | Get patient demographic details |
-| `PUT` | `/api/patients/:id` | Patient, Admin | Update patient personal demographics |
-| `PATCH` | `/api/patients/:id/status` | Admin | Block or unblock patient login access |
+
+| Method  | Endpoint                   | Access                 | Description                                                 |
+| :------ | :------------------------- | :--------------------- | :---------------------------------------------------------- |
+| `GET`   | `/api/patients`            | Admin                  | List all patients (supports `search` by name, email, phone) |
+| `GET`   | `/api/patients/:id`        | Admin, Doctor, Patient | Get patient demographic details                             |
+| `PUT`   | `/api/patients/:id`        | Patient, Admin         | Update patient personal demographics                        |
+| `PATCH` | `/api/patients/:id/status` | Admin                  | Block or unblock patient login access                       |
 
 ### Appointments (`/api/appointments`)
-| Method | Endpoint | Access | Description |
-| :--- | :--- | :--- | :--- |
-| `POST` | `/api/appointments` | Patient, Admin | Book appointment (with double-booking check) |
-| `GET` | `/api/appointments` | Authenticated | Get appointments (Admin sees all; Doctor/Patient see own) |
-| `GET` | `/api/appointments/:id` | Authenticated | View specific appointment details |
-| `PUT` | `/api/appointments/:id/reschedule`| Patient, Admin | Reschedule date & time (with conflict check) |
-| `PUT` | `/api/appointments/:id/cancel` | Authenticated | Cancel an appointment |
-| `PUT` | `/api/appointments/:id/complete` | Doctor | Mark appointment as completed |
+
+| Method | Endpoint                           | Access         | Description                                               |
+| :----- | :--------------------------------- | :------------- | :-------------------------------------------------------- |
+| `POST` | `/api/appointments`                | Patient, Admin | Book appointment (with double-booking check)              |
+| `GET`  | `/api/appointments`                | Authenticated  | Get appointments (Admin sees all; Doctor/Patient see own) |
+| `GET`  | `/api/appointments/:id`            | Authenticated  | View specific appointment details                         |
+| `PUT`  | `/api/appointments/:id/reschedule` | Patient, Admin | Reschedule date & time (with conflict check)              |
+| `PUT`  | `/api/appointments/:id/cancel`     | Authenticated  | Cancel an appointment                                     |
+| `PUT`  | `/api/appointments/:id/complete`   | Doctor         | Mark appointment as completed                             |
+
+### Health Check
+
+| Method | Endpoint | Access | Description                             |
+| :----- | :------- | :----- | :-------------------------------------- |
+| `GET`  | `/api`   | Public | Confirm that the backend API is running |
 
 ### Treatments & Prescriptions (`/api/treatments`)
-| Method | Endpoint | Access | Description |
-| :--- | :--- | :--- | :--- |
-| `POST` | `/api/treatments` | Doctor | Record diagnosis, prescription, notes & complete appointment |
-| `GET` | `/api/treatments/patient/:patientId` | Authenticated | Get complete medical history for a patient |
-| `GET` | `/api/treatments/appointment/:appointmentId`| Authenticated | Get treatment record for a specific appointment |
+
+| Method | Endpoint                                     | Access        | Description                                                  |
+| :----- | :------------------------------------------- | :------------ | :----------------------------------------------------------- |
+| `POST` | `/api/treatments`                            | Doctor        | Record diagnosis, prescription, notes & complete appointment |
+| `GET`  | `/api/treatments/patient/:patientId`         | Authenticated | Get complete medical history for a patient                   |
+| `GET`  | `/api/treatments/appointment/:appointmentId` | Authenticated | Get treatment record for a specific appointment              |
 
 ### Departments / Specializations (`/api/specializations`)
-| Method | Endpoint | Access | Description |
-| :--- | :--- | :--- | :--- |
-| `GET` | `/api/specializations` | Public | List all clinical departments |
-| `POST` | `/api/specializations` | Admin | Add new medical department |
-| `PUT` | `/api/specializations/:id` | Admin | Update department name or description |
-| `DELETE` | `/api/specializations/:id` | Admin | Remove department |
+
+| Method   | Endpoint                   | Access | Description                           |
+| :------- | :------------------------- | :----- | :------------------------------------ |
+| `GET`    | `/api/specializations`     | Public | List all clinical departments         |
+| `POST`   | `/api/specializations`     | Admin  | Add new medical department            |
+| `PUT`    | `/api/specializations/:id` | Admin  | Update department name or description |
+| `DELETE` | `/api/specializations/:id` | Admin  | Remove department                     |
 
 ### Dashboard Analytics (`/api/dashboard`)
-| Method | Endpoint | Access | Description |
-| :--- | :--- | :--- | :--- |
-| `GET` | `/api/dashboard/admin` | Admin | Computes live counts for doctors, patients, appointments |
-| `GET` | `/api/dashboard/doctor` | Doctor | Computes today's visits, completed visits, unique patients |
-| `GET` | `/api/dashboard/patient` | Patient | Returns next appointment, visit counts, recent treatments |
+
+| Method | Endpoint                 | Access  | Description                                                |
+| :----- | :----------------------- | :------ | :--------------------------------------------------------- |
+| `GET`  | `/api/dashboard/admin`   | Admin   | Computes live counts for doctors, patients, appointments   |
+| `GET`  | `/api/dashboard/doctor`  | Doctor  | Computes today's visits, completed visits, unique patients |
+| `GET`  | `/api/dashboard/patient` | Patient | Returns next appointment, visit counts, recent treatments  |
 
 ---
 
 ## ⚙️ Installation & Setup Guide
 
 ### Prerequisites
-- [Node.js](https://nodejs.org/) (v16 or higher)
+
+- [Node.js](https://nodejs.org/) (v18 or higher; required by the Vite 5 toolchain)
 - [MongoDB](https://www.mongodb.com/) running locally on `mongodb://127.0.0.1:27017` (or a MongoDB Atlas URI)
 
 ### Step 1: Clone or Navigate to the Project Directory
+
 ```bash
 cd e:\hospital
 ```
 
 ### Step 2: Install Backend Dependencies
+
 ```bash
 cd backend
 npm install
 ```
 
 ### Step 3: Install Frontend Dependencies
+
 ```bash
 cd ../frontend
 npm install
 ```
 
-### Step 4: Populate Seed Data (Recommended for Viva/Demo)
-Run the automated seed script to populate hospital departments, doctors, patients, schedules, and clinical records:
+### Step 4: Configure Environment Variables
+
+Copy `backend/.env.example` to `backend/.env` and set a valid MongoDB URI and JWT secret before starting the backend.
+
+### Step 5: Start the Backend Server
+
+The backend automatically creates the initial admin and populates the demo departments, doctors, patients, schedules, and clinical records when the database is empty:
+
 ```bash
-cd ../backend
+cd e:\hospital\backend
+npm run dev   # or npm start
+```
+
+_Backend runs on:_ `http://localhost:5000`
+
+To manually reset and reseed the database, run this from `backend`. **This deletes all existing users and clinical records before reseeding:**
+
+```bash
 npm run seed
 ```
 
-### Step 5: Start the Backend Server
-```bash
-cd backend
-npm run dev   # or npm start
-```
-*Backend runs on:* `http://localhost:5000`
-
 ### Step 6: Start the Frontend Application
+
 In a separate terminal window:
+
 ```bash
-cd frontend
+cd e:\hospital\frontend
 npm run dev
 ```
-*Frontend runs on:* `http://localhost:5173`
+
+_Frontend runs on:_ `http://localhost:5173`
 
 ---
 
 ## 🔑 Environment Variables
 
-The backend configuration is managed through `backend/.env`. A template is provided in `backend/.env.example`:
+The backend configuration is managed through `backend/.env`. A template is provided in `backend/.env.example`. `MONGO_URI` and `JWT_SECRET` must be set; `PORT` defaults to `5000`, and the admin credentials below are used when their variables are omitted.
 
 ```env
 # Server Port
@@ -582,12 +645,12 @@ ADMIN_PASSWORD=admin123
 
 ## 🎯 Demo Credentials
 
-For convenience during viva presentations and grading, **1-click quick-fill buttons** are included directly on the Login page (`/login`):
+The Login page (`/login`) uses a standard email/password form. The following accounts are created by the demo seed data, while the admin credentials can be changed through `ADMIN_EMAIL` and `ADMIN_PASSWORD`:
 
-| Role | Email | Password | Pre-populated Data |
-| :--- | :--- | :--- | :--- |
-| **👑 Admin** | `admin@hospital.com` | `admin123` | Full administrative control, live analytics |
-| **👨‍⚕️ Doctor** | `doctor@hospital.com` | `doctor123` | Dr. Robert Smith (Cardiology), today's schedule |
+| Role           | Email                  | Password     | Pre-populated Data                              |
+| :------------- | :--------------------- | :----------- | :---------------------------------------------- |
+| **👑 Admin**   | `admin@hospital.com`   | `admin123`   | Full administrative control, live analytics     |
+| **👨‍⚕️ Doctor**  | `doctor@hospital.com`  | `doctor123`  | Dr. Robert Smith (Cardiology), today's schedule |
 | **👤 Patient** | `patient@hospital.com` | `patient123` | John Doe (Has upcoming visit & medical records) |
 
 ---
@@ -595,33 +658,49 @@ For convenience during viva presentations and grading, **1-click quick-fill butt
 ## 🎓 Viva Preparation Questions & Answers
 
 ### Q1: Why did you choose MongoDB instead of a relational SQL database?
+
 > **Answer**: MongoDB is a document-oriented NoSQL database that stores data as JSON-like documents (BSON). In a MERN project, data passes seamlessly from React to Express and MongoDB without requiring an object-relational mapping impedance mismatch. Additionally, doctors' availability schedules and treatment notes vary in structure and can be naturally modeled as nested arrays and sub-documents.
 
 ### Q2: How is user authentication handled?
+
 > **Answer**: Authentication uses JSON Web Tokens (JWT) and bcryptjs. When a user logs in, their plaintext password is confirmed using `bcrypt.compare()`. Upon verification, the server signs a stateless JWT containing the user's ID and role using a secret key (`JWT_SECRET`). The client stores this token in `localStorage` and includes it in the `Authorization: Bearer <token>` header of every Axios request.
 
 ### Q3: How do you prevent double-booking?
+
 > **Answer**: Before saving any appointment to MongoDB, the backend runs a query:
+>
 > ```js
-> Appointment.findOne({ doctor: doctorId, date: date, time: time, status: "Booked" })
+> Appointment.findOne({
+>   doctor: doctorId,
+>   date: date,
+>   time: time,
+>   status: 'Booked',
+> });
 > ```
-> If an active appointment already exists for that doctor on that date and time, the server returns an **HTTP 400 error**: *"Doctor is already booked for this time slot"*. Furthermore, a compound index on `{ doctor: 1, date: 1, time: 1, status: 1 }` guarantees high query performance.
+>
+> If an active appointment already exists for that doctor on that date and time, the server returns an **HTTP 400 error**: _"Doctor is already booked for this time slot"_. Furthermore, a compound index on `{ doctor: 1, date: 1, time: 1, status: 1 }` guarantees high query performance.
 
 ### Q4: What is the purpose of separating the `User`, `Doctor`, and `Patient` models?
+
 > **Answer**: This follows the **Single Responsibility Principle**. The `User` model handles core identity and authentication concerns (email, password, role, active status). The `Doctor` model holds specialized medical information (specialization, degrees, experience, 7-day schedule). The `Patient` model stores clinical demographics (age, gender). This prevents sparse tables and allows cleaner data modeling.
 
 ### Q5: How does the Mongoose `populate()` method work?
+
 > **Answer**: Mongoose `.populate()` is MongoDB's equivalent of a SQL `JOIN`. Since documents reference each other using `ObjectId` references (e.g., `doctor: { type: ObjectId, ref: 'Doctor' }`), calling `.populate('doctor')` instructs Mongoose to automatically fetch the referenced Doctor document and replace the ID with the full document before sending it to the client.
 
 ### Q6: How does role-based access control (RBAC) work?
+
 > **Answer**: We use dual-layer RBAC:
+>
 > 1. **Frontend**: `ProtectedRoute.jsx` checks the user's role from `AuthContext` and prevents rendering unauthorized routes.
 > 2. **Backend**: `roleMiddleware.js` (`authorize("admin")`) checks `req.user.role` attached by the JWT middleware. If a patient or doctor attempts to invoke an administrative API, the request is immediately rejected with **HTTP 403 Forbidden**.
 
 ### Q7: Why do you store dates as `"YYYY-MM-DD"` strings instead of UTC timestamps?
+
 > **Answer**: Date strings avoid timezone conversion bugs when comparing appointment calendar dates across different client browser timezones. `"2026-10-15"` is unambiguously October 15th for both the patient and doctor.
 
 ### Q8: What happens when an appointment is completed?
+
 > **Answer**: The doctor opens the consultation and enters clinical diagnosis, prescription, and follow-up notes. Submitting this form sends a request to `POST /api/treatments`, which creates a permanent `Treatment` document linked to both patient and doctor, and atomically sets the `Appointment` status to `"Completed"`. The slot is now freed, and the prescription becomes visible in the patient's medical history.
 
 ---
@@ -635,4 +714,4 @@ For convenience during viva presentations and grading, **1-click quick-fill butt
 
 ---
 
-*CarePoint Hospital Management System — Developed for College Academic Evaluation.*
+_CarePoint Hospital Management System — Developed for College Academic Evaluation._

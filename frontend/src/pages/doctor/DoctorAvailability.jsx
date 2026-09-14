@@ -1,6 +1,4 @@
-// ==============================================================================
 // DOCTOR AVAILABILITY MANAGER (DoctorAvailability.jsx)
-// ==============================================================================
 // Simple weekly schedule manager for doctors.
 // Allows specifying availability and consultation hours across the 7 days
 // (Monday through Sunday) so patients can view valid slots before booking.

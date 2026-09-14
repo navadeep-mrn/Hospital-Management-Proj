@@ -1,6 +1,4 @@
-// ==============================================================================
 // APPLICATION MAIN ENTRY POINT (main.jsx)
-// ==============================================================================
 // Mounts React DOM, imports Bootstrap 5 CSS and JavaScript bundles,
 // and sets up BrowserRouter and AuthProvider.
 

@@ -1,6 +1,4 @@
-// ==============================================================================
 // APPOINTMENT MODEL
-// ==============================================================================
 // Connects a Patient with a Doctor on a specific date and time slot.
 // Supports three lifecycle statuses:
 // 1. "Booked"    - Active appointment waiting to happen

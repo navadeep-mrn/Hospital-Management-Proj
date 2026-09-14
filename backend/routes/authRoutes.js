@@ -1,6 +1,4 @@
-// ==============================================================================
 // AUTHENTICATION ROUTES
-// ==============================================================================
 // Public endpoints for registration and login, plus a protected endpoint
 // to get the current user's profile.
 

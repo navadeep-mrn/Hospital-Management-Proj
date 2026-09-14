@@ -1,6 +1,4 @@
-// ==============================================================================
 // MANAGE PATIENTS PAGE (ManagePatients.jsx)
-// ==============================================================================
 // Administrative patient directory:
 // - Search patients by name, email, or telephone number
 // - View patient demographics (age, gender, address, registration date)

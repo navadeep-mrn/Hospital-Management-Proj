@@ -1,6 +1,4 @@
-// ==============================================================================
 // DOCTOR CONTROLLER
-// ==============================================================================
 // Handles doctor management, searching, profile retrieval, availability scheduling,
 // and administrative CRUD operations for doctors.
 
@@ -22,11 +20,9 @@ const defaultAvailability = [
     { day: "Sunday", isAvailable: false, slots: [] }
 ];
 
-// ------------------------------------------------------------------------------
 // @desc    Get all doctors with optional search and specialization filters
 // @route   GET /api/doctors
 // @access  Public
-// ------------------------------------------------------------------------------
 const getAllDoctors = async (req, res) => {
     try {
         const { search, specialization, availableOnly } = req.query;
@@ -64,11 +60,9 @@ const getAllDoctors = async (req, res) => {
     }
 };
 
-// ------------------------------------------------------------------------------
 // @desc    Get single doctor details by ID
 // @route   GET /api/doctors/:id
 // @access  Public
-// ------------------------------------------------------------------------------
 const getDoctorById = async (req, res) => {
     try {
         const doctor = await Doctor.findById(req.params.id)
@@ -85,11 +79,9 @@ const getDoctorById = async (req, res) => {
     }
 };
 
-// ------------------------------------------------------------------------------
 // @desc    Create a new doctor (Admin only)
 // @route   POST /api/doctors
 // @access  Private/Admin
-// ------------------------------------------------------------------------------
 const createDoctor = async (req, res) => {
     try {
         const { name, email, password, phone, address, specialization, qualification, experience, availability } = req.body;
@@ -148,11 +140,9 @@ const createDoctor = async (req, res) => {
     }
 };
 
-// ------------------------------------------------------------------------------
 // @desc    Update doctor profile (Admin or Doctor)
 // @route   PUT /api/doctors/:id
 // @access  Private (Admin or Doctor owner)
-// ------------------------------------------------------------------------------
 const updateDoctor = async (req, res) => {
     try {
         const doctor = await Doctor.findById(req.params.id);
@@ -204,11 +194,9 @@ const updateDoctor = async (req, res) => {
     }
 };
 
-// ------------------------------------------------------------------------------
 // @desc    Toggle doctor active status or availability (Admin only)
 // @route   PATCH /api/doctors/:id/status
 // @access  Private/Admin
-// ------------------------------------------------------------------------------
 const toggleDoctorStatus = async (req, res) => {
     try {
         const doctor = await Doctor.findById(req.params.id).populate("user");
@@ -234,12 +222,9 @@ const toggleDoctorStatus = async (req, res) => {
         res.status(500).json({ message: "Error updating doctor status: " + error.message });
     }
 };
-
-// ------------------------------------------------------------------------------
 // @desc    Update doctor's 7-day availability schedule
 // @route   PUT /api/doctors/:id/availability
 // @access  Private (Doctor owner or Admin)
-// ------------------------------------------------------------------------------
 const updateDoctorAvailability = async (req, res) => {
     try {
         const doctor = await Doctor.findById(req.params.id);

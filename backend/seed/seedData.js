@@ -1,6 +1,4 @@
-// ==============================================================================
 // COMPREHENSIVE DATABASE SEED SCRIPT
-// ==============================================================================
 // Populates MongoDB with realistic initial hospital data:
 // 1. Hospital Departments (Specializations)
 // 2. Doctors with user accounts, medical profiles, and 7-day availability
@@ -14,7 +12,10 @@
 const path = require("path");
 require("dotenv").config({ path: path.resolve(__dirname, "../.env") });
 const mongoose = require("mongoose");
+const dns = require("dns");
 const bcrypt = require("bcryptjs");
+
+dns.setServers(["1.1.1.1"]);
 
 const User = require("../models/User");
 const Doctor = require("../models/Doctor");

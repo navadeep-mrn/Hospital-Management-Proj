@@ -1,6 +1,4 @@
-// ==============================================================================
 // PATIENT DASHBOARD (PatientDashboard.jsx)
-// ==============================================================================
 // Patient home view:
 // 1. Highlights upcoming appointment details (date, time, doctor, department).
 // 2. Metric cards: Total appointments, Completed consultations, Available departments.

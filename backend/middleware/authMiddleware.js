@@ -1,6 +1,4 @@
-// ==============================================================================
 // AUTHENTICATION MIDDLEWARE
-// ==============================================================================
 // Intercepts protected HTTP requests to verify the JSON Web Token (JWT).
 // 1. Reads the "Bearer <token>" header sent by Axios/frontend.
 // 2. Decodes the token using our secret key (JWT_SECRET).

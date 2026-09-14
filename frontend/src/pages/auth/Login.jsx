@@ -1,6 +1,4 @@
-// ==============================================================================
 // LOGIN PAGE (Login.jsx)
-// ==============================================================================
 // Universal login portal for all three roles: Admin, Doctor, and Patient.
 // Submits email and password to Express, receives JWT token, stores it in AuthContext,
 // and redirects the user to their designated dashboard.
@@ -19,9 +17,7 @@ const Login = () => {
     const { login } = useAuth();
     const navigate = useNavigate();
 
-    // --------------------------------------------------------------------------
     // Handle Form Submission
-    // --------------------------------------------------------------------------
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError("");

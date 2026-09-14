@@ -1,6 +1,4 @@
-// ==============================================================================
 // TREATMENT MODAL COMPONENT
-// ==============================================================================
 // Allows a doctor to complete an appointment by recording the patient's
 // clinical diagnosis, medicine prescriptions, and follow-up consultation notes.
 // Submitting this form marks the appointment as "Completed" in MongoDB.

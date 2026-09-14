@@ -1,6 +1,4 @@
-// ==============================================================================
 // LANDING PAGE (Home.jsx)
-// ==============================================================================
 // Modern hospital homepage: Black, White, Grey, and Blue minimalist healthcare palette.
 // Introduces clinical departments, featured doctors, and conflict-free booking.
 
@@ -15,18 +13,24 @@ const Home = () => {
 
     useEffect(() => {
         const fetchInitialData = async () => {
-            try {
-                const [deptRes, docRes] = await Promise.all([
-                    api.get("/specializations"),
-                    api.get("/doctors?availableOnly=true")
-                ]);
-                setDepartments(deptRes.data);
-                setFeaturedDoctors(docRes.data.slice(0, 3));
-            } catch (err) {
-                console.error("Error fetching homepage data:", err);
-            } finally {
-                setLoading(false);
+            const [deptResult, doctorResult] = await Promise.allSettled([
+                api.get("/specializations"),
+                api.get("/doctors")
+            ]);
+
+            if (deptResult.status === "fulfilled") {
+                setDepartments(deptResult.value.data);
+            } else {
+                console.error("Error fetching homepage departments:", deptResult.reason);
             }
+
+            if (doctorResult.status === "fulfilled") {
+                setFeaturedDoctors(doctorResult.value.data.slice(0, 3));
+            } else {
+                console.error("Error fetching homepage doctors:", doctorResult.reason);
+            }
+
+            setLoading(false);
         };
 
         fetchInitialData();
@@ -173,7 +177,9 @@ const Home = () => {
                 </div>
 
                 <div className="row g-4">
-                    {featuredDoctors.map((doc) => (
+                    {loading ? (
+                        <p className="text-muted">Loading doctors...</p>
+                    ) : featuredDoctors.length > 0 ? featuredDoctors.map((doc) => (
                         <div key={doc._id} className="col-md-4">
                             <div className="card h-100 hms-card border-0">
                                 <div className="card-body p-4 text-center">
@@ -191,7 +197,9 @@ const Home = () => {
                                 </div>
                             </div>
                         </div>
-                    ))}
+                    )) : (
+                        <p className="text-muted">No doctors are available yet.</p>
+                    )}
                 </div>
             </section>
 

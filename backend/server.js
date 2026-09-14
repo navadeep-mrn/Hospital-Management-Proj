@@ -1,6 +1,4 @@
-// ==============================================================================
 // HOSPITAL MANAGEMENT SYSTEM - BACKEND SERVER
-// ==============================================================================
 // Main entry point for the Express.js server.
 // - Configures environment variables and connects to MongoDB.
 // - Automatically checks and initializes the default Admin user.
@@ -12,6 +10,7 @@ const express = require("express");
 const cors = require("cors");
 const connectDB = require("./config/db");
 const createAdminIfNotExists = require("./seed/createAdmin");
+const seedInitialData = require("./seed/seedData");
 
 // Initialize Express application
 const app = express();
@@ -22,9 +21,7 @@ app.use(cors());
 // Middleware: Parse incoming JSON request payloads
 app.use(express.json());
 
-// ------------------------------------------------------------------------------
 // Mount REST API Routes
-// ------------------------------------------------------------------------------
 app.use("/api/auth", require("./routes/authRoutes"));
 app.use("/api/doctors", require("./routes/doctorRoutes"));
 app.use("/api/patients", require("./routes/patientRoutes"));
@@ -42,9 +39,7 @@ app.get("/api", (req, res) => {
     });
 });
 
-// ------------------------------------------------------------------------------
 // Global Error Handler Middleware
-// ------------------------------------------------------------------------------
 // Catches unexpected errors in Express routes and returns a clean JSON response
 app.use((err, req, res, next) => {
     console.error("Unhandled Error:", err.stack);
@@ -52,10 +47,7 @@ app.use((err, req, res, next) => {
         message: err.message || "Internal Server Error"
     });
 });
-
-// ------------------------------------------------------------------------------
 // Server Startup and Initialization
-// ------------------------------------------------------------------------------
 const PORT = process.env.PORT || 5000;
 
 const startServer = async () => {
@@ -63,10 +55,13 @@ const startServer = async () => {
         // 1. Connect to MongoDB database
         await connectDB();
 
-        // 2. Automatically create initial Admin if one doesn't exist
+        // 2. Populate the initial catalog and demo records on a fresh database
+        await seedInitialData();
+
+        // 3. Automatically create initial Admin if one doesn't exist
         await createAdminIfNotExists();
 
-        // 3. Start listening for incoming HTTP requests
+        // 4. Start listening for incoming HTTP requests
         app.listen(PORT, () => {
             console.log(`==================================================`);
             console.log(`HMS Backend Server running on port ${PORT}`);

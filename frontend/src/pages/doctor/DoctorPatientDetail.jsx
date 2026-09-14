@@ -1,6 +1,4 @@
-// ==============================================================================
 // DOCTOR PATIENT DETAIL (DoctorPatientDetail.jsx)
-// ==============================================================================
 // Displays a patient's complete clinical record, previous diagnoses,
 // prescriptions, and consultation notes to aid in diagnostic continuity.
 

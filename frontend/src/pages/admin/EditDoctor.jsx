@@ -1,6 +1,4 @@
-// ==============================================================================
 // EDIT DOCTOR PAGE (EditDoctor.jsx)
-// ==============================================================================
 // Admin form to update an existing doctor's profile, qualifications,
 // contact information, and medical specialization.
 

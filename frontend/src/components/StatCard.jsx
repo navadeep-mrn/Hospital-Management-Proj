@@ -1,6 +1,4 @@
-// ==============================================================================
 // STAT CARD COMPONENT
-// ==============================================================================
 // Clean metric card used across Admin, Doctor, and Patient dashboards.
 // Styled strictly with shades of blue, grey, black, and white.
 

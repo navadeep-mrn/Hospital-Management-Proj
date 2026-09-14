@@ -1,6 +1,4 @@
-// ==============================================================================
 // ALERT MESSAGE COMPONENT
-// ==============================================================================
 // Dismissible feedback banner for operations (e.g. success notification,
 // slot double-booking error, or validation failure).
 

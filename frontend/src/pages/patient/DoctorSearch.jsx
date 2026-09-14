@@ -1,6 +1,4 @@
-// ==============================================================================
 // DOCTOR SEARCH & DIRECTORY (DoctorSearch.jsx)
-// ==============================================================================
 // Allows patients to browse hospital physicians, search by name,
 // filter by clinical department (e.g. Cardiology, Neurology), and book directly.
 

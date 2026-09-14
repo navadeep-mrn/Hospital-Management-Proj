@@ -1,6 +1,4 @@
-// ==============================================================================
 // ADMIN DASHBOARD (AdminDashboard.jsx)
-// ==============================================================================
 // Main administrative control center.
 // Displays live analytical metrics fetched directly from MongoDB:
 // 1. Total doctors

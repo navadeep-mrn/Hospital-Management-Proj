@@ -1,6 +1,4 @@
-// ==============================================================================
 // AUTHENTICATION CONTROLLER
-// ==============================================================================
 // Manages patient registration, user login for all roles, and fetching the
 // currently authenticated user profile.
 // Uses bcryptjs for password hashing and jsonwebtoken (JWT) for stateless sessions.
@@ -12,9 +10,7 @@ const Patient = require("../models/Patient");
 const Doctor = require("../models/Doctor");
 const { normalizePhone, isValidIndianPhone } = require("../utils/phone");
 
-// ------------------------------------------------------------------------------
 // Helper: Generate JWT Token
-// ------------------------------------------------------------------------------
 // Signs a JSON Web Token with the user's ID and role, expiring in 7 days.
 // The frontend stores this token and includes it in the HTTP Authorization header.
 const generateToken = (id, role) => {
@@ -23,11 +19,9 @@ const generateToken = (id, role) => {
     });
 };
 
-// ------------------------------------------------------------------------------
 // @desc    Register a new Patient
 // @route   POST /api/auth/register
 // @access  Public
-// ------------------------------------------------------------------------------
 const register = async (req, res) => {
     try {
         const { name, email, password, phone, address, age, gender } = req.body;
@@ -93,11 +87,9 @@ const register = async (req, res) => {
     }
 };
 
-// ------------------------------------------------------------------------------
 // @desc    Authenticate User & get token (Login for Admin, Doctor, Patient)
 // @route   POST /api/auth/login
 // @access  Public
-// ------------------------------------------------------------------------------
 const login = async (req, res) => {
     try {
         const { email, password } = req.body;
@@ -157,11 +149,9 @@ const login = async (req, res) => {
     }
 };
 
-// ------------------------------------------------------------------------------
 // @desc    Get currently logged-in user profile
 // @route   GET /api/auth/me
 // @access  Private (Authenticated users)
-// ------------------------------------------------------------------------------
 const getMe = async (req, res) => {
     try {
         const user = await User.findById(req.user._id).select("-password");

@@ -1,6 +1,4 @@
-// ==============================================================================
 // PATIENT APPOINTMENTS PAGE (PatientAppointments.jsx)
-// ==============================================================================
 // Displays all consultations booked by the logged-in patient.
 // Supports:
 // 1. Viewing appointment details and current lifecycle status (Booked, Completed, Cancelled).

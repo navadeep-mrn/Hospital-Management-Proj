@@ -1,6 +1,4 @@
-// ==============================================================================
 // DASHBOARD CONTROLLER
-// ==============================================================================
 // Computes real-time analytical statistics directly from MongoDB.
 // Provides role-specific metrics for Admin, Doctor, and Patient dashboards:
 // - Admin: Total doctors, total patients, total appointments, today's appointments
@@ -23,11 +21,9 @@ const getTodayDateString = () => {
     return `${year}-${month}-${day}`;
 };
 
-// ------------------------------------------------------------------------------
 // @desc    Get Admin Dashboard statistics
 // @route   GET /api/dashboard/admin
 // @access  Private/Admin
-// ------------------------------------------------------------------------------
 const getAdminStats = async (req, res) => {
     try {
         const todayStr = getTodayDateString();
@@ -86,11 +82,9 @@ const getAdminStats = async (req, res) => {
     }
 };
 
-// ------------------------------------------------------------------------------
 // @desc    Get Doctor Dashboard statistics
 // @route   GET /api/dashboard/doctor
 // @access  Private/Doctor
-// ------------------------------------------------------------------------------
 const getDoctorStats = async (req, res) => {
     try {
         const doctor = await Doctor.findOne({ user: req.user._id });
@@ -156,11 +150,9 @@ const getDoctorStats = async (req, res) => {
     }
 };
 
-// ------------------------------------------------------------------------------
 // @desc    Get Patient Dashboard statistics
 // @route   GET /api/dashboard/patient
 // @access  Private/Patient
-// ------------------------------------------------------------------------------
 const getPatientStats = async (req, res) => {
     try {
         const patient = await Patient.findOne({ user: req.user._id });

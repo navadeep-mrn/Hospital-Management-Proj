@@ -1,6 +1,4 @@
-// ==============================================================================
 // PATIENT CONTROLLER
-// ==============================================================================
 // Manages patient directory search, profile viewing and editing, and administrative
 // account blocking/unblocking.
 
@@ -8,11 +6,9 @@ const User = require("../models/User");
 const Patient = require("../models/Patient");
 const { normalizePhone, isValidIndianPhone } = require("../utils/phone");
 
-// ------------------------------------------------------------------------------
 // @desc    Get all patients with search functionality (Admin only)
 // @route   GET /api/patients
 // @access  Private/Admin
-// ------------------------------------------------------------------------------
 const getAllPatients = async (req, res) => {
     try {
         const { search } = req.query;
@@ -38,11 +34,9 @@ const getAllPatients = async (req, res) => {
     }
 };
 
-// ------------------------------------------------------------------------------
 // @desc    Get single patient details by ID
 // @route   GET /api/patients/:id
 // @access  Private (Admin or Doctor)
-// ------------------------------------------------------------------------------
 const getPatientById = async (req, res) => {
     try {
         const patient = await Patient.findById(req.params.id).populate("user", "name email phone address isActive");
@@ -57,11 +51,9 @@ const getPatientById = async (req, res) => {
     }
 };
 
-// ------------------------------------------------------------------------------
 // @desc    Update patient profile details
 // @route   PUT /api/patients/:id
 // @access  Private (Patient owner or Admin)
-// ------------------------------------------------------------------------------
 const updatePatientProfile = async (req, res) => {
     try {
         const patient = await Patient.findById(req.params.id);
@@ -110,11 +102,9 @@ const updatePatientProfile = async (req, res) => {
     }
 };
 
-// ------------------------------------------------------------------------------
 // @desc    Toggle patient block/active status (Admin only)
 // @route   PATCH /api/patients/:id/status
 // @access  Private/Admin
-// ------------------------------------------------------------------------------
 const togglePatientStatus = async (req, res) => {
     try {
         const patient = await Patient.findById(req.params.id).populate("user");

@@ -1,6 +1,4 @@
-// ==============================================================================
 // BOOK APPOINTMENT PAGE (BookAppointment.jsx)
-// ==============================================================================
 // Patient appointment scheduling interface.
 //
 // Critical Viva Concepts Implemented Here:

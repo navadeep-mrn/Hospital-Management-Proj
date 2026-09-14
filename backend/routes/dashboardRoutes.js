@@ -1,6 +1,4 @@
-// ==============================================================================
 // DASHBOARD ROUTES
-// ==============================================================================
 // Real database analytics endpoints for Admin, Doctor, and Patient dashboards.
 
 const express = require("express");

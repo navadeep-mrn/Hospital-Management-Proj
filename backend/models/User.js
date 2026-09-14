@@ -1,6 +1,4 @@
-// ==============================================================================
 // USER MODEL
-// ==============================================================================
 // Represents all system accounts across the three roles: Admin, Doctor, Patient.
 // Centralizing basic auth fields (name, email, password, role) in one collection
 // makes authentication and JWT token generation simple and consistent.

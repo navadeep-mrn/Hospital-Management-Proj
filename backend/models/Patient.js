@@ -1,6 +1,4 @@
-// ==============================================================================
 // PATIENT MODEL
-// ==============================================================================
 // Extends the User model with patient demographics such as age and gender.
 // Linking to the User model maintains consistent authentication while keeping
 // patient-specific clinical data cleanly organized.

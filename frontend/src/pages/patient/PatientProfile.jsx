@@ -1,6 +1,4 @@
-// ==============================================================================
 // PATIENT PROFILE (PatientProfile.jsx)
-// ==============================================================================
 // Allows patients to review and update personal demographic information
 // (name, contact phone, age, gender, residential address).
 

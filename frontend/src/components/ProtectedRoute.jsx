@@ -1,6 +1,4 @@
-// ==============================================================================
 // PROTECTED ROUTE COMPONENT
-// ==============================================================================
 // Guards frontend routes by verifying authentication and role authorization:
 // 1. If user is not logged in -> redirects to /login.
 // 2. If user's role is not allowed for this route -> redirects to their proper dashboard.

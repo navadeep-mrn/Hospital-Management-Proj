@@ -1,6 +1,4 @@
-// ==============================================================================
 // DOCTOR APPOINTMENTS PAGE (DoctorAppointments.jsx)
-// ==============================================================================
 // Complete calendar view of appointments assigned to the logged-in doctor.
 // Supports status filtering (Booked, Completed, Cancelled), date filtering,
 // and opening the TreatmentModal to complete an appointment and issue prescriptions.

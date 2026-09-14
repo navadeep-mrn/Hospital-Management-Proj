@@ -1,6 +1,4 @@
-// ==============================================================================
 // TREATMENT MODEL
-// ==============================================================================
 // Records clinical outcomes when an appointment is completed by a Doctor.
 // Stores the medical diagnosis, prescribed medications, and doctor's advice.
 // Patients can view these records in their Medical History, and Doctors can

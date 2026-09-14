@@ -1,6 +1,4 @@
-// ==============================================================================
 // MAIN APP COMPONENT (App.jsx)
-// ==============================================================================
 // Configures React Router routes and integrates role-based route protection.
 // Wraps the application inside AuthProvider to provide global authentication state.
 

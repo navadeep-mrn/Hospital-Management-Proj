@@ -1,6 +1,4 @@
-// ==============================================================================
 // PATIENT ROUTES
-// ==============================================================================
 // Endpoints for patient management, searching patient records, and updating demographics.
 
 const express = require("express");

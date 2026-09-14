@@ -1,6 +1,4 @@
-// ==============================================================================
 // DOCTOR ROUTES
-// ==============================================================================
 // Endpoints for browsing doctors (public), managing doctor availability (doctor),
 // and full CRUD operations (admin).
 

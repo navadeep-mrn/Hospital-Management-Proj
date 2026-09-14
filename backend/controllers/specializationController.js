@@ -1,16 +1,11 @@
-// ==============================================================================
 // SPECIALIZATION CONTROLLER
-// ==============================================================================
 // Handles retrieval and administration of hospital departments/specialties
 // (e.g. Cardiology, Neurology, Pediatrics, Orthopedics).
 
 const Specialization = require("../models/Specialization");
-
-// ------------------------------------------------------------------------------
 // @desc    Get all medical specializations
 // @route   GET /api/specializations
 // @access  Public
-// ------------------------------------------------------------------------------
 const getAllSpecializations = async (req, res) => {
     try {
         const specializations = await Specialization.find().sort({ name: 1 });
@@ -20,11 +15,9 @@ const getAllSpecializations = async (req, res) => {
     }
 };
 
-// ------------------------------------------------------------------------------
 // @desc    Create a new specialization (Admin only)
 // @route   POST /api/specializations
 // @access  Private/Admin
-// ------------------------------------------------------------------------------
 const createSpecialization = async (req, res) => {
     try {
         const { name, description } = req.body;
@@ -51,11 +44,9 @@ const createSpecialization = async (req, res) => {
     }
 };
 
-// ------------------------------------------------------------------------------
 // @desc    Update specialization (Admin only)
 // @route   PUT /api/specializations/:id
 // @access  Private/Admin
-// ------------------------------------------------------------------------------
 const updateSpecialization = async (req, res) => {
     try {
         const { name, description } = req.body;
@@ -79,11 +70,9 @@ const updateSpecialization = async (req, res) => {
     }
 };
 
-// ------------------------------------------------------------------------------
 // @desc    Delete specialization (Admin only)
 // @route   DELETE /api/specializations/:id
 // @access  Private/Admin
-// ------------------------------------------------------------------------------
 const deleteSpecialization = async (req, res) => {
     try {
         const specialization = await Specialization.findByIdAndDelete(req.params.id);

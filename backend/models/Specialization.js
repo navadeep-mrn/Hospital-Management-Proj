@@ -1,6 +1,4 @@
-// ==============================================================================
 // SPECIALIZATION MODEL
-// ==============================================================================
 // Represents medical departments in the hospital (e.g., Cardiology, Dermatology).
 // Patients can filter doctors by specialization, and Admins can manage them.
 

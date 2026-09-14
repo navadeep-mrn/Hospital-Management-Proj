@@ -1,6 +1,4 @@
-// ==============================================================================
 // AUTHENTICATION CONTEXT (AuthContext)
-// ==============================================================================
 // Provides global authentication state throughout the React component tree
 // using React's built-in Context API (avoiding heavy third-party libraries like Redux).
 //
@@ -19,9 +17,7 @@ export const AuthProvider = ({ children }) => {
     const [token, setToken] = useState(null);
     const [loading, setLoading] = useState(true);
 
-    // --------------------------------------------------------------------------
     // Check localStorage on application startup
-    // --------------------------------------------------------------------------
     useEffect(() => {
         const savedToken = localStorage.getItem("hms_token");
         const savedUser = localStorage.getItem("hms_user");
@@ -39,9 +35,7 @@ export const AuthProvider = ({ children }) => {
         setLoading(false);
     }, []);
 
-    // --------------------------------------------------------------------------
     // Login function
-    // --------------------------------------------------------------------------
     const login = async (email, password) => {
         const res = await api.post("/auth/login", { email, password });
         const { token: receivedToken, user: receivedUser } = res.data;
@@ -57,9 +51,7 @@ export const AuthProvider = ({ children }) => {
         return receivedUser;
     };
 
-    // --------------------------------------------------------------------------
     // Register function (Patients)
-    // --------------------------------------------------------------------------
     const register = async (formData) => {
         const res = await api.post("/auth/register", formData);
         const { token: receivedToken, user: receivedUser } = res.data;
@@ -73,9 +65,7 @@ export const AuthProvider = ({ children }) => {
         return receivedUser;
     };
 
-    // --------------------------------------------------------------------------
     // Logout function
-    // --------------------------------------------------------------------------
     const logout = () => {
         setToken(null);
         setUser(null);

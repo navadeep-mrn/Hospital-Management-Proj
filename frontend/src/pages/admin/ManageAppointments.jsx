@@ -1,6 +1,4 @@
-// ==============================================================================
 // MANAGE APPOINTMENTS PAGE (ManageAppointments.jsx)
-// ==============================================================================
 // Administrative appointment oversight:
 // - View all scheduled, completed, and cancelled appointments across the hospital
 // - Filter by status (Booked, Completed, Cancelled)

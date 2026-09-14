@@ -1,6 +1,4 @@
-// ==============================================================================
 // TREATMENT ROUTES
-// ==============================================================================
 // Endpoints for saving clinical diagnosis/prescriptions and retrieving patient records.
 
 const express = require("express");

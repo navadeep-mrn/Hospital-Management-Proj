@@ -1,6 +1,4 @@
-// ==============================================================================
 // DOCTOR PATIENTS DIRECTORY (DoctorPatients.jsx)
-// ==============================================================================
 // Displays patients who have booked or completed consultations with this doctor.
 // Provides direct access to each patient's past treatment and prescription records.
 

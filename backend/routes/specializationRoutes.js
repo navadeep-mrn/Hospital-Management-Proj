@@ -1,6 +1,4 @@
-// ==============================================================================
 // SPECIALIZATION ROUTES
-// ==============================================================================
 // Endpoints for browsing hospital departments and administrative department management.
 
 const express = require("express");

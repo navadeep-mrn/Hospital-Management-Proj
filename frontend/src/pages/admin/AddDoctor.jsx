@@ -1,6 +1,4 @@
-// ==============================================================================
 // ADD DOCTOR PAGE (AddDoctor.jsx)
-// ==============================================================================
 // Admin form to register a new doctor into the hospital system.
 // Simultaneously generates their User login account and linked Doctor clinical profile.
 
@@ -15,6 +13,7 @@ const AddDoctor = () => {
     const navigate = useNavigate();
     const [specializations, setSpecializations] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [specializationsLoading, setSpecializationsLoading] = useState(true);
     const [error, setError] = useState("");
 
     const [formData, setFormData] = useState({
@@ -38,6 +37,9 @@ const AddDoctor = () => {
                 }
             } catch (err) {
                 console.error("Error loading specializations:", err);
+                setError("Unable to load departments. Please refresh and try again.");
+            } finally {
+                setSpecializationsLoading(false);
             }
         };
         fetchSpecializations();
@@ -54,6 +56,11 @@ const AddDoctor = () => {
 
         if (!formData.name || !formData.email || !formData.password || !formData.specialization || !formData.qualification) {
             setError("Please fill in all required fields");
+            return;
+        }
+
+        if (specializations.length === 0) {
+            setError("No departments are available. Please create a department first.");
             return;
         }
 
@@ -173,7 +180,12 @@ const AddDoctor = () => {
                                     value={formData.specialization}
                                     onChange={handleChange}
                                     required
+                                    disabled={specializationsLoading || specializations.length === 0}
                                 >
+                                    {specializationsLoading && <option value="">Loading departments...</option>}
+                                    {!specializationsLoading && specializations.length === 0 && (
+                                        <option value="">No departments available</option>
+                                    )}
                                     {specializations.map((spec) => (
                                         <option key={spec._id} value={spec._id}>
                                             {spec.name}

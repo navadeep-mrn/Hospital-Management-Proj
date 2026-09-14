@@ -1,6 +1,4 @@
-// ==============================================================================
 // SIDEBAR COMPONENT
-// ==============================================================================
 // Renders role-specific side navigation for dashboards.
 // Dynamically adjusts navigation links based on whether the logged-in user
 // is an Admin, Doctor, or Patient.

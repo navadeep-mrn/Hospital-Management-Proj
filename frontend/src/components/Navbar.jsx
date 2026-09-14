@@ -1,6 +1,4 @@
-// ==============================================================================
 // NAVBAR COMPONENT
-// ==============================================================================
 // Primary top navigation bar. Displays the hospital brand, role-appropriate
 // links, the active user's name and role badge, and the Logout button.
 // Uses clean dark slate, pure white, and blue accents.

@@ -1,6 +1,4 @@
-// ==============================================================================
 // ROLE AUTHORIZATION MIDDLEWARE
-// ==============================================================================
 // Enforces Role-Based Access Control (RBAC).
 // Ensures that only specific user roles (e.g. "admin", "doctor", "patient") can access
 // protected API endpoints.

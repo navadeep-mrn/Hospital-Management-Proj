@@ -1,6 +1,4 @@
-// ==============================================================================
 // DOCTOR PROFILE PAGE (DoctorProfile.jsx)
-// ==============================================================================
 // Shows comprehensive doctor credentials, department affiliation,
 // and the physician's 7-day consultation schedule before booking.
 

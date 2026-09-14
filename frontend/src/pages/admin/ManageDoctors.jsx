@@ -1,6 +1,4 @@
-// ==============================================================================
 // MANAGE DOCTORS PAGE (ManageDoctors.jsx)
-// ==============================================================================
 // Administrative doctor management view:
 // - View list of all hospital doctors with credentials & specialization
 // - Search doctors by name or specialization

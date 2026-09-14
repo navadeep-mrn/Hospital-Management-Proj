@@ -1,6 +1,4 @@
-// ==============================================================================
 // DOCTOR MODEL
-// ==============================================================================
 // Extends the User model with doctor-specific medical attributes:
 // specialization, qualification, years of experience, and weekly availability slots.
 // Linking to the User model via ObjectId avoids duplicating login credentials.

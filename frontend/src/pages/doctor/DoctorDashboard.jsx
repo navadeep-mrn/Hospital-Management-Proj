@@ -1,6 +1,4 @@
-// ==============================================================================
 // DOCTOR DASHBOARD (DoctorDashboard.jsx)
-// ==============================================================================
 // Doctor portal home view:
 // 1. Shows today's scheduled consultations, upcoming visits, completed consultations,
 //    and total unique patients treated (calculated directly from MongoDB).
