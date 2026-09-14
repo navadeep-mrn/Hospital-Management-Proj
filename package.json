@@ -1,0 +1,15 @@
+{
+  "name": "hospital-management-system",
+  "version": "1.0.0",
+  "description": "Hospital Management System (HMS) - Full MERN Stack Project",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "backend": "cd backend && npm run dev",
+    "frontend": "cd frontend && npm run dev",
+    "seed": "cd backend && npm run seed"
+  },
+  "keywords": ["mern", "hospital-management", "react", "express", "mongodb", "node"],
+  "author": "NAVADEEP",
+  "license": "ISC"
+}

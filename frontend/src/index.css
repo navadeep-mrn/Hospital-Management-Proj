@@ -1,0 +1,270 @@
+/* ==============================================================================
+   HOSPITAL MANAGEMENT SYSTEM - STYLESHEET
+   Refined Minimalist Healthcare Theme:
+   Palette strictly composed of Black, White, and Shades of Grey & Blue.
+   ============================================================================== */
+
+:root {
+  /* Core Blue Shades */
+  --blue-950: #0a1329;
+  --blue-900: #0f224a;
+  --blue-800: #1e3a8a;
+  --blue-700: #1d4ed8;
+  --blue-600: #2563eb;
+  --blue-500: #3b82f6;
+  --blue-400: #60a5fa;
+  --blue-200: #bfdbfe;
+  --blue-100: #dbeafe;
+  --blue-50:  #eff6ff;
+
+  /* Neutral Slate / Grey Shades */
+  --slate-950: #020617;
+  --slate-900: #0f172a;
+  --slate-800: #1e293b;
+  --slate-700: #334155;
+  --slate-600: #475569;
+  --slate-500: #64748b;
+  --slate-400: #94a3b8;
+  --slate-300: #cbd5e1;
+  --slate-200: #e2e8f0;
+  --slate-100: #f1f5f9;
+  --slate-50:  #f8fafc;
+
+  /* Pure Basics */
+  --pure-black: #000000;
+  --pure-white: #ffffff;
+
+  /* Semantic Theme Variables */
+  --hospital-primary: var(--blue-600);
+  --hospital-primary-dark: var(--blue-800);
+  --hospital-bg: var(--slate-50);
+  --hospital-card-bg: var(--pure-white);
+  --hospital-border: var(--slate-200);
+  --hospital-text: var(--slate-900);
+  --hospital-muted: var(--slate-500);
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--hospital-bg);
+  color: var(--hospital-text);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Primary Button Styling */
+.btn-primary {
+  background-color: var(--blue-600) !important;
+  border-color: var(--blue-600) !important;
+  color: var(--pure-white) !important;
+  font-weight: 500;
+  transition: all 0.15s ease;
+}
+
+.btn-primary:hover, .btn-primary:focus {
+  background-color: var(--blue-700) !important;
+  border-color: var(--blue-700) !important;
+}
+
+.btn-outline-primary {
+  color: var(--blue-600) !important;
+  border-color: var(--blue-600) !important;
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--blue-600) !important;
+  color: var(--pure-white) !important;
+}
+
+.btn-dark {
+  background-color: var(--slate-900) !important;
+  border-color: var(--slate-900) !important;
+}
+
+.btn-dark:hover {
+  background-color: var(--slate-950) !important;
+  border-color: var(--slate-950) !important;
+}
+
+/* Custom Card Styling */
+.hms-card {
+  background-color: var(--hospital-card-bg);
+  border: 1px solid var(--hospital-border);
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04), 0 1px 2px rgba(15, 23, 42, 0.02);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.hms-card:hover {
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.08);
+  border-color: var(--slate-300);
+}
+
+.hms-card-header {
+  background-color: var(--pure-white);
+  border-bottom: 1px solid var(--hospital-border);
+  padding: 1rem 1.25rem;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  font-weight: 600;
+  color: var(--slate-900);
+}
+
+/* Sidebar Layout */
+.dashboard-layout {
+  display: flex;
+  min-height: calc(100vh - 60px);
+}
+
+.sidebar {
+  width: 250px;
+  background-color: var(--pure-white);
+  border-right: 1px solid var(--hospital-border);
+  padding: 1.5rem 1rem;
+  flex-shrink: 0;
+}
+
+.sidebar .nav-link {
+  color: var(--slate-600);
+  font-weight: 500;
+  padding: 0.65rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 0.35rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: all 0.15s ease;
+  text-decoration: none;
+}
+
+.sidebar .nav-link:hover {
+  background-color: var(--slate-100);
+  color: var(--blue-700);
+}
+
+.sidebar .nav-link.active {
+  background-color: var(--blue-50);
+  color: var(--blue-800);
+  font-weight: 600;
+  border-left: 3px solid var(--blue-600);
+}
+
+.dashboard-content {
+  flex-grow: 1;
+  padding: 2rem;
+  background-color: var(--hospital-bg);
+  overflow-x: auto;
+}
+
+/* Hero Section: High-contrast Dark Slate to Deep Blue Gradient */
+.hero-banner {
+  background: linear-gradient(135deg, var(--slate-950) 0%, var(--slate-900) 45%, var(--blue-900) 100%);
+  color: var(--pure-white);
+  padding: 4.5rem 2.5rem;
+  border-radius: 16px;
+  border: 1px solid var(--slate-800);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.25);
+}
+
+/* Stat Cards */
+.stat-card {
+  border-radius: 12px;
+  border: 1px solid var(--hospital-border);
+  background: var(--pure-white);
+  padding: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03);
+}
+
+.stat-icon-wrapper {
+  width: 52px;
+  height: 52px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+/* Tables */
+.table-responsive {
+  border-radius: 10px;
+  border: 1px solid var(--hospital-border);
+  background: var(--pure-white);
+}
+
+.table th {
+  background-color: var(--slate-50);
+  color: var(--slate-600);
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.85rem 1rem;
+  border-bottom: 2px solid var(--hospital-border);
+}
+
+.table td {
+  padding: 0.85rem 1rem;
+  vertical-align: middle;
+  border-color: var(--slate-100);
+}
+
+/* Monochromatic & Blue Status Badges */
+.badge-booked {
+  background-color: var(--blue-50);
+  color: var(--blue-700);
+  border: 1px solid var(--blue-200);
+  font-weight: 600;
+}
+
+.badge-completed {
+  background-color: var(--slate-900);
+  color: var(--pure-white);
+  border: 1px solid var(--slate-900);
+  font-weight: 500;
+}
+
+.badge-cancelled {
+  background-color: var(--slate-100);
+  color: var(--slate-600);
+  border: 1px solid var(--slate-300);
+  font-weight: 500;
+}
+
+/* Navigation Bar */
+.navbar-custom {
+  background-color: var(--slate-950) !important;
+  border-bottom: 1px solid var(--slate-800);
+}
+
+/* Subtitle and text-muted override */
+.text-muted {
+  color: var(--slate-500) !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) {
+  .dashboard-layout {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--hospital-border);
+    padding: 1rem;
+  }
+  .sidebar .nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+  }
+  .dashboard-content {
+    padding: 1.25rem;
+  }
+}
