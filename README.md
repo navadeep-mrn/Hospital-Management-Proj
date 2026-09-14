@@ -12,15 +12,9 @@
 4. [Technology Stack](#-technology-stack)
 5. [Folder Structure](#-folder-structure)
 6. [Database Models & Schemas](#-database-models--schemas)
-7. [Entity Relationship (ER) Diagram](#-entity-relationship-er-diagram)
-8. [Authentication & Authorization Flow](#-authentication--authorization-flow)
-9. [Double-Booking Prevention Logic](#-double-booking-prevention-logic)
-10. [REST API Endpoints Reference](#-rest-api-endpoints-reference)
-11. [Installation & Setup Guide](#-installation--setup-guide)
-12. [Environment Variables](#-environment-variables)
-13. [Demo Credentials](#-demo-credentials)
-14. [Viva Preparation Questions & Answers](#-viva-preparation-questions--answers)
-15. [Future Enhancements](#-future-enhancements)
+7. [Authentication & Authorization Flow](#-authentication--authorization-flow)
+8. [REST API Endpoints Reference](#-rest-api-endpoints-reference)
+9. [Installation & Setup Guide](#-installation--setup-guide)
 
 ---
 
