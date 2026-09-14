@@ -38,13 +38,26 @@ Operational records are stored and calculated live in **MongoDB**. The project a
 
 The screenshots below show the application running locally with the seeded demo data.
 
-### Doctor Availability Management
-
-Doctors can configure working days and add multiple consultation slots for each day.
-
-![Doctor availability management](image.png)
-
-> More screenshots can be added to this section by placing image files in the repository and linking them with relative paths, for example: `![Admin dashboard](screenshots/admin-dashboard.png)`.
+| Application View    | Screenshot                                                               |
+| :------------------ | :----------------------------------------------------------------------- |
+| Live demo screen 1  | ![Live demo screen 1](screenshots/Screenshot%202026-09-14%20163459.png)  |
+| Live demo screen 2  | ![Live demo screen 2](screenshots/Screenshot%202026-09-14%20163515.png)  |
+| Live demo screen 3  | ![Live demo screen 3](screenshots/Screenshot%202026-09-14%20163534.png)  |
+| Live demo screen 4  | ![Live demo screen 4](screenshots/Screenshot%202026-09-14%20163547.png)  |
+| Live demo screen 5  | ![Live demo screen 5](screenshots/Screenshot%202026-09-14%20163559.png)  |
+| Live demo screen 6  | ![Live demo screen 6](screenshots/Screenshot%202026-09-14%20163810.png)  |
+| Live demo screen 7  | ![Live demo screen 7](screenshots/Screenshot%202026-09-14%20163819.png)  |
+| Live demo screen 8  | ![Live demo screen 8](screenshots/Screenshot%202026-09-14%20163843.png)  |
+| Live demo screen 9  | ![Live demo screen 9](screenshots/Screenshot%202026-09-14%20163923.png)  |
+| Live demo screen 10 | ![Live demo screen 10](screenshots/Screenshot%202026-09-14%20164014.png) |
+| Live demo screen 11 | ![Live demo screen 11](screenshots/Screenshot%202026-09-14%20164027.png) |
+| Live demo screen 12 | ![Live demo screen 12](screenshots/Screenshot%202026-09-14%20164039.png) |
+| Live demo screen 13 | ![Live demo screen 13](screenshots/Screenshot%202026-09-14%20164053.png) |
+| Live demo screen 14 | ![Live demo screen 14](screenshots/Screenshot%202026-09-14%20164102.png) |
+| Live demo screen 15 | ![Live demo screen 15](screenshots/Screenshot%202026-09-14%20164159.png) |
+| Live demo screen 16 | ![Live demo screen 16](screenshots/Screenshot%202026-09-14%20164210.png) |
+| Live demo screen 17 | ![Live demo screen 17](screenshots/Screenshot%202026-09-14%20164221.png) |
+| Live demo screen 18 | ![Live demo screen 18](screenshots/Screenshot%202026-09-14%20164233.png) |
 
 ---
 
@@ -621,97 +634,3 @@ npm run dev
 _Frontend runs on:_ `http://localhost:5173`
 
 ---
-
-## 🔑 Environment Variables
-
-The backend configuration is managed through `backend/.env`. A template is provided in `backend/.env.example`. `MONGO_URI` and `JWT_SECRET` must be set; `PORT` defaults to `5000`, and the admin credentials below are used when their variables are omitted.
-
-```env
-# Server Port
-PORT=5000
-
-# MongoDB Connection String
-MONGO_URI=mongodb://127.0.0.1:27017/hospital_management_db
-
-# Secret Key for JWT Token Generation
-JWT_SECRET=super_secret_hospital_jwt_key_2026
-
-# Default Auto-Created Admin Credentials
-ADMIN_EMAIL=admin@hospital.com
-ADMIN_PASSWORD=admin123
-```
-
----
-
-## 🎯 Demo Credentials
-
-The Login page (`/login`) uses a standard email/password form. The following accounts are created by the demo seed data, while the admin credentials can be changed through `ADMIN_EMAIL` and `ADMIN_PASSWORD`:
-
-| Role           | Email                  | Password     | Pre-populated Data                              |
-| :------------- | :--------------------- | :----------- | :---------------------------------------------- |
-| **👑 Admin**   | `admin@hospital.com`   | `admin123`   | Full administrative control, live analytics     |
-| **👨‍⚕️ Doctor**  | `doctor@hospital.com`  | `doctor123`  | Dr. Robert Smith (Cardiology), today's schedule |
-| **👤 Patient** | `patient@hospital.com` | `patient123` | John Doe (Has upcoming visit & medical records) |
-
----
-
-## 🎓 Viva Preparation Questions & Answers
-
-### Q1: Why did you choose MongoDB instead of a relational SQL database?
-
-> **Answer**: MongoDB is a document-oriented NoSQL database that stores data as JSON-like documents (BSON). In a MERN project, data passes seamlessly from React to Express and MongoDB without requiring an object-relational mapping impedance mismatch. Additionally, doctors' availability schedules and treatment notes vary in structure and can be naturally modeled as nested arrays and sub-documents.
-
-### Q2: How is user authentication handled?
-
-> **Answer**: Authentication uses JSON Web Tokens (JWT) and bcryptjs. When a user logs in, their plaintext password is confirmed using `bcrypt.compare()`. Upon verification, the server signs a stateless JWT containing the user's ID and role using a secret key (`JWT_SECRET`). The client stores this token in `localStorage` and includes it in the `Authorization: Bearer <token>` header of every Axios request.
-
-### Q3: How do you prevent double-booking?
-
-> **Answer**: Before saving any appointment to MongoDB, the backend runs a query:
->
-> ```js
-> Appointment.findOne({
->   doctor: doctorId,
->   date: date,
->   time: time,
->   status: 'Booked',
-> });
-> ```
->
-> If an active appointment already exists for that doctor on that date and time, the server returns an **HTTP 400 error**: _"Doctor is already booked for this time slot"_. Furthermore, a compound index on `{ doctor: 1, date: 1, time: 1, status: 1 }` guarantees high query performance.
-
-### Q4: What is the purpose of separating the `User`, `Doctor`, and `Patient` models?
-
-> **Answer**: This follows the **Single Responsibility Principle**. The `User` model handles core identity and authentication concerns (email, password, role, active status). The `Doctor` model holds specialized medical information (specialization, degrees, experience, 7-day schedule). The `Patient` model stores clinical demographics (age, gender). This prevents sparse tables and allows cleaner data modeling.
-
-### Q5: How does the Mongoose `populate()` method work?
-
-> **Answer**: Mongoose `.populate()` is MongoDB's equivalent of a SQL `JOIN`. Since documents reference each other using `ObjectId` references (e.g., `doctor: { type: ObjectId, ref: 'Doctor' }`), calling `.populate('doctor')` instructs Mongoose to automatically fetch the referenced Doctor document and replace the ID with the full document before sending it to the client.
-
-### Q6: How does role-based access control (RBAC) work?
-
-> **Answer**: We use dual-layer RBAC:
->
-> 1. **Frontend**: `ProtectedRoute.jsx` checks the user's role from `AuthContext` and prevents rendering unauthorized routes.
-> 2. **Backend**: `roleMiddleware.js` (`authorize("admin")`) checks `req.user.role` attached by the JWT middleware. If a patient or doctor attempts to invoke an administrative API, the request is immediately rejected with **HTTP 403 Forbidden**.
-
-### Q7: Why do you store dates as `"YYYY-MM-DD"` strings instead of UTC timestamps?
-
-> **Answer**: Date strings avoid timezone conversion bugs when comparing appointment calendar dates across different client browser timezones. `"2026-10-15"` is unambiguously October 15th for both the patient and doctor.
-
-### Q8: What happens when an appointment is completed?
-
-> **Answer**: The doctor opens the consultation and enters clinical diagnosis, prescription, and follow-up notes. Submitting this form sends a request to `POST /api/treatments`, which creates a permanent `Treatment` document linked to both patient and doctor, and atomically sets the `Appointment` status to `"Completed"`. The slot is now freed, and the prescription becomes visible in the patient's medical history.
-
----
-
-## 🚀 Future Enhancements
-
-1. **PDF Prescription Generation**: Export digital prescriptions as downloadable PDF files with hospital letterhead.
-2. **Email / SMS Reminders**: Automated appointment reminders 24 hours prior to consultation via Nodemailer or Twilio.
-3. **Telemedicine / Video Consultation**: Simple WebRTC-based video call rooms for remote doctor consultations.
-4. **Billing & Invoice Module**: Integration with payment gateways (Stripe / Razorpay) for automated consultation fee receipts.
-
----
-
-_CarePoint Hospital Management System — Developed for College Academic Evaluation._
